@@ -8,7 +8,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     <div class="wrapper"> 
       <header class="banner"> 
         <img src="/assets/VirtualTacoStand.png" alt="website banner for virtual taco stand" class="banner-img"> 
-      </header> 
+      </header>
+      
+      <div class="sign-in-container">
+        <a routerLink="/signin" class="sign-in-link">Sign In </a>
+      </div>
+
       <main class="main-content"> 
       <nav class="navbar"> 
         <ul> 
@@ -18,11 +23,13 @@ import { RouterLink, RouterOutlet } from '@angular/router';
           <li><a href="#">Daily Specials</a></li> 
           <li><a href="#">Feedback</a></li> 
         </ul> 
-      </nav> 
+      </nav>
+      
       <section class="content"> 
         <router-outlet /> 
       </section> 
-      </main> 
+      </main>
+      
       <footer class="footer"> 
       <nav class="footer-nav"> 
         <a routerLink="/">Home</a> | 
@@ -36,7 +43,21 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     </div>
   `, styles:[
     `
+    .sign-in-container {
+      text-align: right;
+      padding-right: 20px;
+      margin-top: 10px;
+    }
+
+    .sign-in-link {
+      color: #000000;
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+    }
     
+    .sign-in-link:hover {
+      text-decoration: underline;
+    }
     `
   ]
 })

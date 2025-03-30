@@ -9,11 +9,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     <h1>RPG Character Builder</h1>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Characters</a></li>
-        <li><a href="#">Classes</a></li>
-        <li><a href="#">Races</a></li>
-        <li><a href="#">About</a></li>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/create-character">Create Character</a></li>
+        <li><a routerLink="/character-faction">Character Faction</a></li>
+        <li><a routerLink="/create-guild">Create Guild</a></li>
+        <li><a routerLink="/players">Players</a></li>
+        <li><a routerLink="/signin">Signin</a></li>
       </ul>
     </nav>
     </header>
@@ -25,11 +26,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     <footer>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Characters</a></li>
-        <li><a href="#">Classes</a></li>
-        <li><a href="#">Races</a></li>
-        <li><a href="#">About</a></li>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/create-character">Create Character</a></li>
+        <li><a routerLink="/character-faction">Character Faction</a></li>
+        <li><a routerLink="/create-guild">Create Guild</a></li>
+        <li><a routerLink="/players">Players</a></li>
+        <li><a routerLink="/signin">Signin</a></li>
       </ul>
     </nav>
     <p>&copy; 2025 RPG Character Builder</p>
@@ -38,6 +40,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   </div>
   `, styles:[
   `
+  
   `
   ]
 })
