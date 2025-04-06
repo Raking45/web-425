@@ -17,7 +17,7 @@ describe('CreateCharacterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the create character component', () => {
     expect(component).toBeTruthy();
   });
 });

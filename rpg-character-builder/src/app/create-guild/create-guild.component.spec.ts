@@ -17,7 +17,7 @@ describe('CreateGuildComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the create guild component', () => {
     expect(component).toBeTruthy();
   });
 });

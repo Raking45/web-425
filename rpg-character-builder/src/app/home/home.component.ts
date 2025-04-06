@@ -16,6 +16,25 @@ import { Component } from '@angular/core';
       <p class="intro">
         Beyond stats and abilities, bring your character's personality to life with backstories, motivations, and unique traits.  Whether you are preparing for a tabletop campaign, a video game adventure, or crafting an original fantasy world, the RPG Character Builder is your gateway to unlimited storytelling possibilities.  Your legend begins here - what kind of hero will you become?
       </p>
+      <!-- Barbarian Section -->
+      <section class="character-class">
+        <h2>Barbarian</h2>
+        <div class="images">
+          <img src="./assets/barbarian-male.png" alt="Male Barbarian">
+          <img src="./assets/barbarian-female.jpg" alt="Female Barbarian">
+        </div>
+        <p class="description">
+          Barbarians are fierce warriors driven by raw emotion and sheer physical power.  Their rage fuels them in battle, making them nearly unstoppable as they crush their enemies with brute force.
+        </p>
+        <ul class="stats">
+          <li><strong>Strength:</strong> 20</li>
+          <li><strong>Dexterity:</strong> 12</li>
+          <li><strong>Constitution:</strong> 18</li>
+          <li><strong>Intelligence:</strong> 8</li>
+          <li><strong>Wisdom:</strong> 10</li>
+          <li><strong>Charisma:</strong> 10</li>
+        </ul>
+      </section>
 
       <!-- Warrior Section -->
       <section class="character-class">
@@ -34,6 +53,46 @@ import { Component } from '@angular/core';
           <li><strong>Intelligence:</strong> 8</li>
           <li><strong>Wisdom:</strong> 10</li>
           <li><strong>Charisma:</strong> 10</li>
+        </ul>
+      </section>
+
+      <!-- Knight Section -->
+      <section class="character-class">
+        <h2>Knight</h2>
+        <div class="images">
+          <img src="./assets/knight-male.png" alt="Male Knight">
+          <img src="./assets/knight-female.png" alt="Female Knight">
+        </div>
+        <p class="description">
+          Knights are noble warriors bound by honor and duty. Clad in heavy armor and wielding powerful weapons, they stand as paragons of valor and chivalry, defending the weak and upholding justice.
+        </p>
+        <ul class="stats">
+          <li><strong>Strength:</strong> 18</li>
+          <li><strong>Dexterity:</strong> 10</li>
+          <li><strong>Constitution:</strong> 16</li>
+          <li><strong>Intelligence:</strong> 12</li>
+          <li><strong>Wisdom:</strong> 14</li>
+          <li><strong>Charisma:</strong> 16</li>
+        </ul>
+      </section>
+
+      <!-- Priest Section -->
+      <section class="character-class">
+        <h2>Priest</h2>
+        <div class="images">
+          <img src="./assets/priest-male.png" alt="Male Priest">
+          <img src="./assets/priest-female.png" alt="Female Priest">
+        </div>
+        <p class="description">
+          Priests are devoted to divine powers, channeling holy magic to heal and support their allies. Their faith grants them strength, allowing them to smite evil and restore hope in the darkest times.
+        </p>
+        <ul class="stats">
+          <li><strong>Strength:</strong> 10</li>
+          <li><strong>Dexterity:</strong> 10</li>
+          <li><strong>Constitution:</strong> 12</li>
+          <li><strong>Intelligence:</strong> 14</li>
+          <li><strong>Wisdom:</strong> 18</li>
+          <li><strong>Charisma:</strong> 16</li>
         </ul>
       </section>
 
@@ -76,7 +135,47 @@ import { Component } from '@angular/core';
           <li><strong>Charisma:</strong> 14</li>
         </ul>
       </section>
-    </div>
+
+      <!-- Ranger Section -->
+      <section class="character-class">
+        <h2>Ranger</h2>
+        <div class="images">
+          <img src="./assets/ranger-male.png" alt="Male Ranger">
+          <img src="./assets/ranger-female.png" alt="Female Ranger">
+        </div>
+        <p class="description">
+          Rangers are expert hunters and survivalists, thriving in the wilds with unmatched precision and agility. Whether tracking enemies or striking from afar, they are masters of archery and guerrilla tactics.
+        </p>
+        <ul class="stats">
+          <li><strong>Strength:</strong> 14</li>
+          <li><strong>Dexterity:</strong> 18</li>
+          <li><strong>Constitution:</strong> 14</li>
+          <li><strong>Intelligence:</strong> 12</li>
+          <li><strong>Wisdom:</strong> 14</li>
+          <li><strong>Charisma:</strong> 10</li>
+        </ul>
+      </section>
+
+      <!-- Druid Section -->
+      <section class="character-class">
+        <h2>Druid</h2>
+        <div class="images">
+          <img src="./assets/druid-male.png" alt="Male Druid">
+          <img src="./assets/druid-female.png" alt="Female Druid">
+        </div>
+        <p class="description">
+          Druids are guardians of nature, wielding primal magic to heal, protect, and transform. They command the forces of the wild, calling upon the earth, air, fire, and water to aid them in battle.
+        </p>
+        <ul class="stats">
+          <li><strong>Strength:</strong> 10</li>
+          <li><strong>Dexterity:</strong> 12</li>
+          <li><strong>Constitution:</strong> 14</li>
+          <li><strong>Intelligence:</strong> 14</li>
+          <li><strong>Wisdom:</strong> 18</li>
+          <li><strong>Charisma:</strong> 12</li>
+        </ul>
+      </section>
+      </div>
   `,
   styles: [`
     @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@300;700&family=Playfair+Display:wght@500&display=swap');

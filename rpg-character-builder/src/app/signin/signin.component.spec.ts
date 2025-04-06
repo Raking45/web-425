@@ -17,7 +17,7 @@ describe('SigninComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the sign-in component', () => {
     expect(component).toBeTruthy();
   });
 });

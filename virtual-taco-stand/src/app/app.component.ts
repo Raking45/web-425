@@ -18,7 +18,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       <nav class="navbar"> 
         <ul> 
           <li><a routerLink="/">Home</a></li> 
-          <li><a href="#">Menu</a></li> 
+          <li><a routerLink="/menu">Menu</a></li> 
           <li><a href="#">Order</a></li> 
           <li><a href="#">Daily Specials</a></li> 
           <li><a href="#">Feedback</a></li> 
@@ -33,7 +33,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       <footer class="footer"> 
       <nav class="footer-nav"> 
         <a routerLink="/">Home</a> | 
-        <a href="#">Menu</a> | 
+        <a routerLink="/menu">Menu</a> | 
         <a href="#">Order</a> | 
         <a href="#">Daily Specials</a> | 
         <a href="#">Feedback</a> 

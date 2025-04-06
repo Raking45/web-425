@@ -17,7 +17,7 @@ describe('CharacterFactionComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the character faction component', () => {
     expect(component).toBeTruthy();
   });
 });
