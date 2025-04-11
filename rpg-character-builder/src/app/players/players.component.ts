@@ -27,20 +27,20 @@ export interface CharacterItem {
         @for (item of character;track character) {
         <li class="character-card">
         <div class="card">
-          <img class="character-image" [src]="character.image" [alt]="character.name"/>
-          <h2>{{ character.name }}</h2>
-          <p><strong>Gender:</strong> {{ character.gender }}</p>
-          <p><strong>Class:</strong> {{ character.class }}</p>
-          <p><strong>Faction:</strong> {{ character.faction }}</p>
-          <p><strong>Starting Location:</strong> {{ character.startingLocation }}</p>
-          <p><strong>Level:</strong> {{ character.level }}</p>
-          <p><strong>Experience:</strong> {{ character.experience }}</p>
-          <p class="fun-fact"><strong>Fun Fact:</strong> {{ character.funFact }}</p>
+          <img class="character-image" [src]="item.image" [alt]="item.name"/>
+          <h2>{{ item.name }}</h2>
+          <p><strong>Gender:</strong> {{ item.gender }}</p>
+          <p><strong>Class:</strong> {{ item.class }}</p>
+          <p><strong>Faction:</strong> {{ item.faction }}</p>
+          <p><strong>Starting Location:</strong> {{ item.startingLocation }}</p>
+          <p><strong>Level:</strong> {{ item.level }}</p>
+          <p><strong>Experience:</strong> {{ item.experience }}</p>
+          <p class="fun-fact"><strong>Fun Fact:</strong> {{ item.funFact }}</p>
           </div>
         </li>
         }
       </ul>
-      
+    </div> 
   `,
   styles: `
   @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@300;700&display=swap');
