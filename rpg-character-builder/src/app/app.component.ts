@@ -19,7 +19,7 @@ import { AuthService } from './auth.service';
         <li>
         <div class="sign-in-container">
         @if (email) {
-        <div class="signin-greeting">
+        <div class="signin-greeting-header">
           <p>Welcome, {{ email }}!</p>
           <button (click)="signout()">Sign Out</button>
         </div>
@@ -45,7 +45,18 @@ import { AuthService } from './auth.service';
         <li><a routerLink="/character-faction">Character Faction</a></li>
         <li><a routerLink="/create-guild">Create Guild</a></li>
         <li><a routerLink="/players">Players</a></li>
-        <li><a routerLink="/signin">Signin</a></li>
+        <li>
+        <div class="sign-in-container">
+        @if (email) {
+        <div class="signin-greeting-footer">
+          <p>Welcome, {{ email }}!</p>
+          <button (click)="signout()">Sign Out</button>
+        </div>
+        } @else {
+        <a routerLink="./signin" class="sign-in-link">Sign In </a>
+        }
+      </div>
+        </li>
       </ul>
     </nav>
     <p>&copy; 2025 RPG Character Builder</p>
@@ -54,12 +65,7 @@ import { AuthService } from './auth.service';
   </div>
   `, styles:[
   `
-  .signin-greeting {
-    position: absolute;
-    top: 10px;
-    right: 50px;
-    color: #ffffff;
-  }
+  
   `
   ]
 })
@@ -78,5 +84,6 @@ export class AppComponent{
 
   signout() {
     this.authService.signout();
+    this.email=undefined;
   }
 }

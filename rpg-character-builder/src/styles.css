@@ -62,6 +62,54 @@ nav ul li a:hover {
   color: var(--hover-color);
 }
 
+/* Container for the sign-in greeting (Header/Footer) */
+.sign-in-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.signin-greeting-header {
+  margin-top: -12px;
+  font-size: 18px;
+}
+
+.signin-greeting-header, .signin-greeting-footer {
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.signin-greeting-header button {
+  font-size: 18px;
+}
+
+.signin-greeting-header button:hover {
+  background-color: #0f3460;
+  color: #f39c12;
+  cursor: pointer;
+  border: 1px solid #000000;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 4px 4px rgba(240, 240, 240, 0.4);
+}
+
+.signin-greeting-footer button:hover {
+  background-color: #0f3460;
+  color: #f39c12;
+  cursor: pointer;
+  border: 1px solid #000000;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 4px 4px rgba(240, 240, 240, 0.4);
+}
+
+.signin-greeting-footer button {
+  font-size: 16px;
+  margin-top: -5px;
+}
+
 /* Main Content */
 main {
   flex-grow: 1;
