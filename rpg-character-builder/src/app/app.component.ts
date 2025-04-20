@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from './auth.service';
 
 @Component({ 
   selector: 'app-root',  standalone: true, 
@@ -14,9 +16,21 @@ import { RouterLink, RouterOutlet } from '@angular/router';
         <li><a routerLink="/character-faction">Character Faction</a></li>
         <li><a routerLink="/create-guild">Create Guild</a></li>
         <li><a routerLink="/players">Players</a></li>
-        <li><a routerLink="/signin">Signin</a></li>
+        <li>
+        <div class="sign-in-container">
+        @if (email) {
+        <div class="signin-greeting">
+          <p>Welcome, {{ email }}!</p>
+          <button (click)="signout()">Sign Out</button>
+        </div>
+        } @else {
+        <a routerLink="./signin" class="sign-in-link">Sign In </a>
+        }
+      </div>
+      </li>
       </ul>
     </nav>
+
     </header>
 
     <main>
@@ -40,8 +54,29 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   </div>
   `, styles:[
   `
-  
+  .signin-greeting {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: #ffffff;
+  }
   `
   ]
 })
-export class AppComponent{}
+export class AppComponent{
+  email?:string;
+  constructor(private authService:AuthService, private cookieService:CookieService) {
+  }
+
+  ngOnInit() {
+    this.authService.getAuthState().subscribe((isAuth) => {
+      if(isAuth) {
+        this.email=this.cookieService.get('session_user');
+      }
+    });
+  }
+
+  signout() {
+    this.authService.signout();
+  }
+}

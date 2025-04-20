@@ -25,6 +25,7 @@ header {
   background-color: var(--nav-bg-color);
   padding: 1rem;
   text-align: center;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 header h1 {
@@ -64,9 +65,16 @@ nav ul li a:hover {
 /* Main Content */
 main {
   flex-grow: 1;
-  padding: 2rem;
+  padding: 2px;
   text-align: center;
-  min-height: 68vh;
+  min-height: 74.5vh;
+}
+
+.signin-form-container {
+  background-image: url('../public/assets/background-dragon.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 74.5vh;
 }
 
 /* Footer Styles */
@@ -74,6 +82,7 @@ footer {
   background-color: var(--footer-bg-color);
   padding: 1rem;
   text-align: center;
+  border-top: 2px solid var(--accent-color);
 }
 
 footer p {
