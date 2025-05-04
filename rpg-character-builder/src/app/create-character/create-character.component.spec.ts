@@ -2,21 +2,33 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CreateCharacterComponent } from './create-character.component';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { of } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 describe('CreateCharacterComponent', () => {
   let component: CreateCharacterComponent;
   let fixture: ComponentFixture<CreateCharacterComponent>;
+  let authServiceMock: any;
 
   beforeEach(async () => {
+    authServiceMock = {
+      isSignedIn: jasmine.createSpy('isSignedIn').and.returnValue(true),
+      getAuthState: () => of(true)
+    };
+
     await TestBed.configureTestingModule({
-      imports: [CreateCharacterComponent, FormsModule]
-    })
-    .compileComponents();
+      imports: [CreateCharacterComponent, FormsModule],
+      providers: [
+        { provide: AuthService, useValue: authServiceMock }
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CreateCharacterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  
 
   // Test 1: Should create character component.
   it('should create the create character component', () => {

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { GuildListComponent } from '../guild-list/guild-list.component';
 
 @Component({
   selector: 'app-create-guild',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, GuildListComponent],
   template: `
     <div class="guild-container">
       <h1>Create a New Guild</h1>
@@ -65,19 +66,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
         <button type="submit" [disabled]="guildForm.invalid || !guildForm.dirty">Create Guild</button>
       </form>
 
-      <section *ngIf="guilds.length > 0" class="guild-list">
-        <h2>Created Guilds</h2>
-        <div class="guild-cards">
-          <div *ngFor="let guild of guilds" class="guild-card">
-            <h3>{{guild.guildName}}</h3>
-            <p>{{guild.description}}</p>
-            <ul class="stats">
-              <li>Type: {{guild.type}}</li>
-              <li>Notifications: {{guild.notificationPreference}}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <!-- Use Guild List Component -->
+      <app-guild-list [guilds]="guilds"></app-guild-list>
     </div>
   `,
   styles: [`
@@ -171,37 +161,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
     margin-top: 0.3rem;
   }
 
-  .guild-list {
-    margin-top: 3rem;
-  }
-
-  .guild-cards {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .guild-card {
-    background: #0f3460;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 4px 6px 4px rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-width: 350px;
-    max-width: 500px;
-  }
-
   h2 {
     text-shadow: 1px 1px #000;
     font-size: 2.5rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
   }
 
   h2, h3 {
@@ -210,18 +172,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
   p {
     color: #ffffff;
-  }
-
-  ul.stats {
-    padding: 0;
-    list-style: none;
-  }
-
-  ul.stats li {
-    
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 5px;
   }
     `]
 })

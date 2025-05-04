@@ -9,7 +9,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     const spy=jasmine.createSpyObj('CookieService', ['set','deleteAll']);
     TestBed.configureTestingModule({
-      providers: [AuthService, { provide: CookieService, useValue:spy }]
+      providers: [AuthService, { provide:CookieService, useValue:spy }]
     });
     service=TestBed.inject(AuthService);
     cookieServiceSpy=TestBed.inject(CookieService) as jasmine.SpyObj<CookieService>;
@@ -20,7 +20,7 @@ describe('AuthService', () => {
   });
 
   it('should set cookie and authState to true on successful signin', () => {
-    const result=service.signin('warrior@fantasy.com', 'Warrior123');
+    const result=service.signin('wizardlywand@hogwarts.com', 'Alohomora123');
     expect(result).toBeTrue();
     expect(service.getAuthState().subscribe(state=>expect(state).toBeTrue()));
     expect(cookieServiceSpy.set.calls.count()).toBe(1);

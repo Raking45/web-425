@@ -30,6 +30,13 @@ export class AuthService {
     return this.authState.asObservable();
   }
 
+  isSignedIn(): boolean {
+    const sessionUser = this.cookieService.get('session_user');
+    const isLoggedIn = !!sessionUser;
+    this.authState.next(isLoggedIn); // Keep BehaviorSubject in sync
+    return isLoggedIn;
+  }
+
   signin(email:string, password:string) {
     const user = this.users.find(user => user.email === email && user.password === password);
 

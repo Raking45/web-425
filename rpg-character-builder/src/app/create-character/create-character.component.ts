@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CharacterListComponent } from '../character-list/character-list.component';
+import { AuthService } from '../auth.service';
 
 export interface Character {
   name: string;
@@ -10,11 +12,11 @@ export interface Character {
 @Component({
   selector: 'app-create-character',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, CharacterListComponent],
   template: `
     <div class="character-form-container">
+      <h2>Create a New Character</h2>
       <form #characterForm="ngForm" (ngSubmit)="addCharacter()" class="character-form">
-        <h2>Create a New Character</h2>
 
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required [(ngModel)]="name" />
@@ -41,95 +43,80 @@ export interface Character {
         <button type="submit">Create Character</button>
       </form>
 
-      <div class="character-list" *ngIf="characters.length > 0;">
-        <h2>Created Characters</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Gender</th>
-              <th>Class</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let char of characters; let i = index">
-              <td>{{ i+1 }}</td>
-              <td>{{ char.name }}</td>
-              <td>{{ char.gender }}</td>
-              <td>{{ char.class }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <!-- Use CharacterListComponent -->
+      <app-character-list [characters]="characters"></app-character-list>
     </div>
   `,
   styles: [`
     h2 {
+      font-size: 2.5rem;
       color: #f1c40f;
+      text-shadow: 1px 1px #000;
     }
     
     label {
-      color: #fff;
-      font-weight: 600;
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 18px;
+      text-shadow: 1px 1px #000;
     }
 
     .character-form-container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-      border: 2px solid black;
-      background-color: #0f3460;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      color: #f1c40f;
+      font-weight: 600;
     }
 
-    .character-form {
+    form.character-form {
+      width: 500px;
+      margin: 0 auto;
+      background-color: #0f3460;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 4px 6px 4px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 1.2rem;
     }
 
-    .character-form input,
-    .character-form select,
-    .character-form button {
-      padding: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      background-color:rgb(219, 219, 219);
-    }
-
-    .character-form button:hover {
-      background-color: #0f3460;
-      color: #f39c12;
-    }
-
-    .character-list {
-      margin-top: 30px;
-    }
-
-    .character-list table {
+    input[type="text"] {
       width: 100%;
-      border-collapse: collapse;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      padding-right: -1.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
     }
 
-    .character-list th,
-    .character-list td {
-      border: 2px solid #ccc;
-      padding: 10px;
-      text-align: left;
-      color: #fff;
-    }
-
-    .character-list th {
-      background-color: #0f3460;
-      color: #f1c40f;
-    }
-
-    thead tr th {
-      text-align: center;
+    select {
+      padding: 0.75rem 1rem;
+      border-radius: 5px;
     }
     
-    tbody tr td {
-      text-align: center;
+    button[type="submit"] {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #f1c40f;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button[type="submit"]:hover {
+      background-color:rgb(109, 167, 238);
+      color: #f1c40f;
+      border: 1px solid #f1c40f;
+    }
+
+    app-character-list {
+      margin-top: 3rem;
     }
     `]
 })
@@ -139,8 +126,17 @@ export class CreateCharacterComponent {
   name: string = '';
   gender: 'Male' | 'Female' | 'Undecided' = 'Male';
   class: 'Barbarian' | 'Warrior' | 'Knight' | 'Priest' | 'Wizard' | 'Rogue' | 'Ranger' | 'Druid' = 'Warrior';
+
+  constructor(private authService: AuthService) {
+
+  }
   
   addCharacter() {
+    if(!this.authService.isSignedIn()) {
+      alert('You must be signed in to create a character.');
+      return;
+    }
+    
     if (!this.name.trim()) return;
     const newCharacter: Character = {
       name: this.name,
